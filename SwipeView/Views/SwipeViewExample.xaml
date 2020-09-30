@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SwipeView.Views.SwipeViewExample">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Grid.RowSpan="2">
+                <Label Text="Hello World" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <Frame
+                Grid.Row="1"
+                x:Name="SwipeView"
+                BackgroundColor="Gray"
+                HeightRequest="500"
+                TranslationY="400"
+                Margin="5,0"
+                Padding="0,5"
+                HasShadow="False">
+
+                <StackLayout>
+                    <BoxView
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="Center"
+                        WidthRequest="100"
+                        Margin="0"
+                        CornerRadius="5"
+                        HeightRequest="10" />
+                    <Label
+                        BackgroundColor="Blue"
+                        Text="I'm a swipe example"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start" />
+                </StackLayout>
+
+                <Frame.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="OnSwipedUp" />
+                    <SwipeGestureRecognizer Direction="Down" Swiped="OnSwipedDown" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
